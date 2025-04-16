@@ -1,0 +1,9 @@
+PUT http://localhost:4000/patients/123e4567-e89b-12d3-a456-426614174001
+content-type:application/json
+
+{
+  "name": "Sajar Majar",
+  "email": "updatedFool@gmail.com",
+  "address": "125 main street",
+  "dateOfBirth": "2005-09-01"
+}
