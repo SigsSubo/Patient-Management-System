@@ -1,3 +1,6 @@
+
+# need to learn how to use docker compose to set up environment variables, without using gui.
+
 FROM maven:3.9.9-eclipse-temurin-21 AS builder
 
 WORKDIR /app
@@ -19,3 +22,5 @@ COPY --from=builder ./app/target/pm-0.0.1-SNAPSHOT.jar ./app.jar
 EXPOSE 4000
 
 ENTRYPOINT ["java", "-jar", "app.jar"]
+
+
