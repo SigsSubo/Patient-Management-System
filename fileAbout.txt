@@ -1,0 +1,32 @@
+PatientServiceApplication -> Spring Boot app
+
+--SpringBoot Notes--
+
+: @ symbol is used for annotations. Annotations provide metadata about the code
+    @Component: Generic Spring-managed component.
+    @Service: Business logic layer.
+    @Repository: Data access layer (also enables exception translation for databases).
+    @Controller/@RestController: Web controllers (REST endpoints return JSON/XML with @RestController).
+        -> @GetMapping // GET request
+        -> @PostMapping // POST request
+
+: Controllers
+
+
+
+Packages
+
+1. Model
+-> Contains: Patient
+: Creates Patient Table, using Jakarta Persistence and Jakarta Validation, with java.uilt.UUID as PK host.
+: Contains Getter and Setter for each column's / entity.
+
+2.
+
+
+
+
+
+
+
+
