@@ -1,9 +1,2 @@
-<<<<<<< HEAD
-### GET request to get all patients
-GET http://localhost:4000/patients
 
-=======
-### GET request to example server
-GET http://localhost:4000/patients
->>>>>>> 52fe109b5a9dffca00ab013dddcc4bf46a2b21ae
-###
+GET http://localhost:4004/api/patients
