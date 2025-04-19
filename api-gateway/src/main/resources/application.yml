@@ -9,12 +9,14 @@ spring:
         ## API GATEWAY -> http://auth-service:4005/login ( StripPrefix=1, removes /auth from url )
         ## since auth-service is name of docker container, it will automatically find its ip, and replace it.
         ## -> http://localhost:4005/login
+
         - id: auth-service-route
           uri: http://auth-service:4005
           predicates:
             - Path=/auth/**
           filters:
             - StripPrefix=1
+
         # Route for /api/patients/** to patient-service
         - id: patient-service-route
           uri: http://patient-service:4000
@@ -23,6 +25,7 @@ spring:
           filters:
             - StripPrefix=1
             - JwtValidation # spring looks for file JwtValidation + "GatewayFilterFactory" and calls apply() behind the scene.
+
         # Route for /api/docs/patients to patient-service /v3/api-docs
         - id: api-docs-patient-route
           uri: http://patient-service:4000
@@ -31,11 +34,10 @@ spring:
           filters:
             - RewritePath=/api-docs/patients,/v3/api-docs
 
-
       # localhost:4004/api-docs/auth -> returns openAPI json.
 
         - id: api-docs-auth-route
-          uri: http://auth-service:4005
+          uri: http://auth-service:4005 # points to server port 4004 via api gateway
           predicates:
             - Path=/api-docs/auth
           filters:
