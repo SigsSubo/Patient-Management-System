@@ -35,7 +35,8 @@ public class AuthController {
     @Operation(summary = "Validate Token")
     @GetMapping("/validate")
     public ResponseEntity<Void> validateToken(@RequestHeader("Authorization") String authHeader) {
-
+        // Authorization: Bearer <token>
+        // If the header doesn’t match this format, the token is considered invalid.
         if(authHeader == null || !authHeader.startsWith("Bearer ")) {
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
         }
@@ -45,3 +46,5 @@ public class AuthController {
                 : ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
     }
 }
+
+
