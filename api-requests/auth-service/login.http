@@ -1,8 +1,13 @@
-# @no-cookie-jar
-POST http://localhost:4005/login
+# when not using api gateway POST http://localhost:4005/login
+# changes made: to auth service - removed bind ports, since we want it to be handled by api gateway.
+# when doing so: if POST http://localhost:4005/login, we get connection refused as that port is no longer used.
+# POST http://localhost:4004/auth/login works since its pointing to api-gateway.
+POST http://localhost:4004/auth/login
 Content-Type: application/json
 
 {
   "email": "testuser@test.com",
   "password": "password123"
 }
+
+> {% client.global.set("token", response.body.token) %}
