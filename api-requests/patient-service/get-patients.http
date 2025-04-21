@@ -1,3 +1,4 @@
 // api gateway looks for valid token to perform GET mapping.
-GET http://localhost:4004/api/patients
+#GET http://localhost:4004/api/patients
+GET http://lb-52389805.elb.localhost.localstack.cloud:4004/api/patients
 Authorization: Bearer {{token}} // token is passed by IJ via environment variables.
